@@ -159,6 +159,7 @@ class GetSwitchbotDevices:
         """Find switchbot devices and their advertisement data."""
 
         devices = None
+        _LOGGER.warning("discover started")
 
         devices = bleak.BleakScanner(
             filters={"UUIDs": [getCurtainDeviceUuid()]},
