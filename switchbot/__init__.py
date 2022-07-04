@@ -118,10 +118,13 @@ class GetSwitchbotDevices:
         advertisement_data: bleak.backends.scanner.AdvertisementData,
     ) -> None:
         """BTLE adv scan callback."""
+        _LOGGER.warning("detection_callback")
         _device = device.address.replace(":", "").lower()
         _service_data = list(advertisement_data.service_data.values())[0]
         _model = chr(_service_data[0] & 0b01111111)
 
+        _LOGGER.warning("Found device: %d", _device)   
+        _LOGGER.warning("Found service_data: %d", _service_data)   
         supported_types: dict[str, dict[str, Any]] = {
             "H": {"modelName": "WoHand", "func": _process_wohand},
             "c": {"modelName": "WoCurtain", "func": _process_wocurtain},
@@ -137,6 +140,7 @@ class GetSwitchbotDevices:
         }
 
         if _model in supported_types:
+            _LOGGER.warning("Found model: %d", supported_types[_model]["modelName"])   
 
             self._adv_data[_device].update(
                 {
@@ -157,7 +161,7 @@ class GetSwitchbotDevices:
         devices = None
 
         devices = bleak.BleakScanner(
-            filters={"UUIDs": [getDefaultUuid(), getCurtainDeviceUuid()]},
+            filters={"UUIDs": [getCurtainDeviceUuid()]},
             adapter=self._interface,
         )
         devices.register_detection_callback(self.detection_callback)
