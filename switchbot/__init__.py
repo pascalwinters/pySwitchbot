@@ -47,7 +47,7 @@ def _sb_uuid(comms_type: str = "service") -> UUID | str:
     _uuid = {"tx": "0002", "rx": "0003", "service": "fd3d"}
 
     if comms_type in _uuid:
-        return UUID(f"cba2{_uuid[comms_type]}-224d-11e6-9fb8-0002a5d5c51b")
+        return UUID(f"0000fd3d-0000-1000-8000-00805f9b34fb")
 
     return "Incorrect type, choose between: tx, rx or service"
 
