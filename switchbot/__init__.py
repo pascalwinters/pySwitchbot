@@ -162,7 +162,7 @@ class GetSwitchbotDevices:
         _LOGGER.warning("discover started")
 
         devices = bleak.BleakScanner(
-            filters={"UUIDs": [getCurtainDeviceUuid()]},
+            # filters={"UUIDs": [getCurtainDeviceUuid()]},
             adapter=self._interface,
         )
         devices.register_detection_callback(self.detection_callback)
