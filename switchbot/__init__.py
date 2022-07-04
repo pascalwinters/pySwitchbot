@@ -163,7 +163,7 @@ class GetSwitchbotDevices:
 
         devices = bleak.BleakScanner(
             # filters={"UUIDs": [getCurtainDeviceUuid()]},
-            adapter=self._interface,
+            #adapter=self._interface,
         )
         devices.register_detection_callback(self.detection_callback)
 
