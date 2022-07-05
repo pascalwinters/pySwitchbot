@@ -37,7 +37,7 @@ CURTAIN_EXT_CHAIN_INFO_KEY = "570f468101"
 # Base key when encryption is set
 KEY_PASSWORD_PREFIX = "571"
 
-_LOGGER = logging.getLogger('__name__')
+_LOGGER = logging.getLogger(__name__)
 CONNECT_LOCK = asyncio.Lock()
 
 def _sb_uuid(comms_type: str) -> UUID | str:
