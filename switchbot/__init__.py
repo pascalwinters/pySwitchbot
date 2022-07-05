@@ -108,6 +108,7 @@ class GetSwitchbotDevices:
     """Scan for all Switchbot devices and return by type."""
 
     def __init__(self, interface: int = 0) -> None:
+        _LOGGER.warning("GetSwitchbotDevices __init__")
         """Get switchbot devices class constructor."""
         self._interface = f"hci{interface}"
         self._adv_data: dict[str, Any] = {}
