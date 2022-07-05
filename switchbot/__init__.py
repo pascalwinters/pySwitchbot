@@ -54,7 +54,7 @@ def getDefaultUuid() -> str:
     return "cba20d00-224d-11e6-9fb8-0002a5d5c51b"
 
 def getCurtainDeviceUuid() -> str:
-    return "0000fd3d-0000-1000-8000-00805f9b34fb"
+    return "0000fe9f-0000-1000-8000-00805f9b34fb"
 
 def _process_wohand(data: bytes) -> dict[str, bool | int]:
     """Process woHand/Bot services data."""
